@@ -7,35 +7,51 @@ import Redirect from "./redirect";
 import Nav from "./navBar";
 import TestPortal from "../testComp/mainComp";
 import QuizList from "./quizlist";
+import About from "./about";
+import Progress from "./progress";
 
 class Display extends Component {
   render() {
     return (
       <div className="container-fluid">
+         
         <Nav />
         <Switch>
-          <Route path="/login" component={Login} />
+          {/* <Route path="/login" component={Login} />
           <Route
             path="/logout"
             component={
-              dataAuth.isLogin() && dataAuth.isLogin().data ? LogOut : Redirect
+              dataAuth.isLogin() ? LogOut : Login
             }
-          />
-
+          /> */}
           <Route
             path="/quizlist"
             component={
-              dataAuth.isLogin() && dataAuth.isLogin().data
-                ? QuizList
-                : Redirect
+             QuizList
+               
             }
           />
-           <Route
-            path="/liveportal"
+           {/* <Route
+            path="/about"
             component={
-              dataAuth.isLogin() && dataAuth.isLogin().data
-                ? TestPortal
-                : Redirect
+              dataAuth.isLogin() 
+                ? About
+                : Login
+            }
+          /> */}
+           {/* <Route
+            path="/progress"
+            component={
+              dataAuth.isLogin() 
+                ? Progress
+                : Login
+            }
+          /> */}
+           <Route
+            path="/liveportal/:id"
+            component={
+              TestPortal
+                
             }
           />
 

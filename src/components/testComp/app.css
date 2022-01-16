@@ -5,7 +5,7 @@
   height: 768px;
 }
 .nav-height {
-  height: 65px;
+  height: auto;
 }
 .testMainBack {
   background-color: #ffffff;
@@ -44,6 +44,7 @@
   box-shadow: #000 2px 2px -2px 0px;
 }
 .scrollbar {
+  width: 100%;
   overflow-y: scroll;
 }
 body {

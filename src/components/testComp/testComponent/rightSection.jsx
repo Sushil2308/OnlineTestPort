@@ -24,9 +24,10 @@ class RightSection extends Component{
     render(){
         const { data = [],loading=true } = this.state;
        return( 
-        <div className="jumbotrons">
+        <div className="jumbotrons m-1">
         {!loading ? (
-         
+         <div className="scrollbar scrollbar-primary w-100">
+         <div class="force-overflow">
          <div class="bg-shadow">
            <div className="row row-cols-2 m-auto row justify-content-center align-items-center">
             {data.map((temp, index) => (
@@ -34,6 +35,8 @@ class RightSection extends Component{
                   <Tooltip title={temp.status===0?"Question Is Not Viewd":temp.status===1?"Question Is Already Viewd But Not Solved":"Question Is Solved"}><h5 className="row  justify-content-center align-items-center">{`Q.${index+1}`}</h5></Tooltip>
               </div>
             ))}
+            </div>
+            </div>
             </div>
            </div>
         ) : (

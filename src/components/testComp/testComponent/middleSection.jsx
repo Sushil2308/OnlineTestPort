@@ -10,6 +10,7 @@ class MiddleSection extends Component {
     index: 0,
     lastIndex:-1,
     loading: true,
+   
   };
   componentDidMount() {
     this.mapData();
@@ -20,8 +21,8 @@ class MiddleSection extends Component {
     }
   }
   mapData = async () => {
-    const { id = "", question = "", options = "" ,status=0,answerd=-1} = this.props.question;
-    const tempData = { id: id, question: question, options: eval(options) ,status:status,answerd:answerd};
+    const { id = "", question = "", options = "" ,status=0,answerd=-1,correctAnswere=""} = this.props.question;
+    const tempData = { id: id, question: question, options: eval(options) ,status:status,answerd:answerd,correctAnswere:correctAnswere};
     this.setState({
       data: tempData,
       index: this.props.questionIndex,
@@ -30,8 +31,8 @@ class MiddleSection extends Component {
     });
   };
   render() {
-    const { data = {}, index = 0, loading = true,lastIndex=0 } = this.state;
-    console.log(this.state);
+    const { data = {}, index = 0, loading = true,lastIndex=0, } = this.state;
+    // console.log(this.state);
     return (
       <div className="p-1">
         {!loading ? (
@@ -102,7 +103,7 @@ class MiddleSection extends Component {
                   </div>
                 </div>
               ))}
-             
+             {this.props.ShowMyResultSection?<div className={data.answerd>=0?data.options[data.answerd]===data.correctAnswere[0]?"text-primary mt-2 p-3 bg-shadow":"text-warning mt-2 p-3 bg-shadow":"text-danger mt-2 p-3 bg-shadow"}>{data.answerd>=0?`Your Answer Was: ${data.options[data.answerd]}.The Correct Is :${data.correctAnswere}`:"First Choose Your Expected Option"}</div>:""}
             </div>
             <div className="row d-flex justify-content-between align-items-center mt-1 mb-2">
               <button disabled={index>0?false:true} className="btn col-2 btn-outline-primary"

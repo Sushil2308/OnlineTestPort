@@ -25,13 +25,14 @@ class Login extends Component {
   };
 
   async authUserForLogin(ob) {
-    let response = await httpRequest.post("/authAndSendStatus", ob);
-    console.log("response", response.data);
-    let { data } = response;
-    auth.login(data);
-    window.location = "/home";
+    // let response = await httpRequest.post("/authAndSendStatus", ob);
+    // console.log("response", response.data);
+    // let { data } = response;
+    auth.login('Token gtwyshdgssgajshhddghfg^5636372627');
+    window.location = "/quizlist";
   }
   authLoginUser = () => {
+    console.log("Hi")
     const { username, password } = this.state.form;
     const user = { username: username, password: password };
     console.log(user);
@@ -60,8 +61,8 @@ class Login extends Component {
                 <div className="mb-4">
                   <h3>Sign In</h3>
                   <p className="mb-4">
-                    Lorem ipsum dolor sit amet elit. Sapiente sit aut eos
-                    consectetur adipisicing.
+                    This portal will help you to imporove 
+                    your study style
                   </p>
                 </div>
 
@@ -88,24 +89,13 @@ class Login extends Component {
                   />
                 </div>
 
-                <div className="d-flex mb-5 align-items-center flex-column">
-                  <label className="control control--checkbox mb-0">
-                  <input type="checkbox" />
-                    <span className="caption ml-2">Remember me</span>
-                   
-                    <div className="control__indicator "></div>
-                  </label>
-                  <span className="ml-3">
-                    <Link to="#" className="forgot-pass">
-                      Forgot Password
-                    </Link>
-                  </span>
-                </div>
+               
 
                 <input
                   type="submit"
                   value="Log In"
                   className="btn btn-block btn-primary"
+                  onClick={this.authLoginUser}
                 />
 
                 <span className="d-block text-center my-4 text-muted">

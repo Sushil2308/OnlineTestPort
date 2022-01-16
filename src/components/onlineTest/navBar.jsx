@@ -4,9 +4,8 @@ import dataAuth from "./localStorage";
 import "./style.css";
 class Nav extends Component {
   state = {};
-
   render() {
-    console.log(this.props.history);
+
     return (
       <div className="jumbotrons">
       <nav className="navbar navbar-expand-lg navbar-light bg-light ">
@@ -34,27 +33,27 @@ class Nav extends Component {
               </Link>
             </li>
             
-            <li className="nav-item active">
+            {/* <li className="nav-item active">
               <Link className="nav-link" to="/about">
                 About
               </Link>
             </li>
-            {dataAuth.isLogin() && dataAuth.isLogin().data ?
+            {dataAuth.isLogin()?
             <li className="nav-item active">
-              <Link className="nav-link " to="">
+              <Link className="nav-link " to="/progress">
                 Progress 
               </Link>
             </li>
-              :""}
+              :""} */}
           </ul>
           <div className="col-1">
-          {dataAuth.isLogin() && dataAuth.isLogin().data ?
+          {/* {dataAuth.isLogin()  ?
             <button className="btn btn-outline-success my-2 my-sm-0" type="submit">
               Logout
             </button>
             : <button className="btn btn-outline-primary my-2 my-sm-0" type="submit">
             Login
-          </button>}
+          </button>} */}
           </div>
         </div>
       </nav>

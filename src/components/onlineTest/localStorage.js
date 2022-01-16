@@ -1,4 +1,4 @@
-const key = "userDetails";
+const key = "auth_token";
 
 function login(ob) {
   localStorage.setItem(key, JSON.stringify(ob));
