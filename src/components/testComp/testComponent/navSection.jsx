@@ -1,6 +1,11 @@
 import React, { Component } from "react";
-import { LoadingOutlined } from "@ant-design/icons";
 import { Spin, Tooltip } from "antd";
+import {
+  LoadingOutlined,
+  EyeFilled,
+  EyeInvisibleFilled,
+  LikeFilled,
+} from "@ant-design/icons";
 const antIcon = (
   <LoadingOutlined type="loading" style={{ fontSize: 24 }} spin />
 );
@@ -8,46 +13,62 @@ class NavSection extends Component {
   state = {
     tempData: {},
     loading: true,
-   
   };
   componentDidMount() {
     this.fetchData();
   }
-  componentDidUpdate(preProps,preState){
-      if(this.props!==preProps){
-        this.fetchData();
-      }
-  
+  componentDidUpdate(preProps, preState) {
+    if (this.props !== preProps) {
+      this.fetchData();
+    }
   }
   fetchData = async () => {
     this.setState({ tempData: this.props.fetchViewdNonViewd, loading: false });
   };
   render() {
-    const { tempData,loading=true } = this.state;
-    // console.log(this.state)
+    const { tempData, loading = true } = this.state;
     return (
-      <div className="container-fluid">
+      <div className="jumbotrons">
         {!loading ? (
-          
           <>
             <div className="row fontSizeBold">
               <div className="text-center text-dark">Exam Name</div>
-              
-              <div className="row col-12 d-flex flex-column">
-               
-                  <div className="row col-12 d-flex justify-content-end align-items-center text-danger">
-                    <Tooltip title="Sure!! You want to submit to test!">
-                    <div className="col-2 btn btn-warning"
-                    onClick={()=>this.props.ShowMyResults()}
-                    >Show Answer!!</div>
+
+              <div className="row row-cols-3 d-flex col-xl-6 col-lg-6 col-md-12 justify-content-between align-items-center mt-2">
+                <div className=" col-xl-2 col-lg-2 col-md-2 text-primary">
+                  <span title="Total No Of Viewd">
+                    <Tooltip title="Question Is Already Viewd But Not Solved">
+                      <EyeFilled
+                        style={{ fontSize: 40 }}
+                        className="text-primary"
+                      />
                     </Tooltip>
-                  </div>
-              
-                  <div className="row d-flex col-12 justify-content-between align-items-center">
-                  <div className=" col-3 text-primary"><span title="Total No Of Viewd">Viewd: {tempData.viewed}</span></div>
-                  <div className=" col-4 text-success"><span title="Total No Of Solved">Solved: {tempData.solved}</span></div>
-                  <div className=" col-5 text-warning"><span title="Total Non Viewd Questions">Not Viewd: {tempData.nonViewed}</span></div>
-                  </div>
+                    {tempData.viewed}
+                  </span>
+                </div>
+                <div className=" col-xl-2 col-lg-2 col-md-3 text-success">
+                  <span title="Total No Of Solved">
+                    {" "}
+                    <Tooltip title="Answer Is Already Submitted">
+                      <LikeFilled
+                        style={{ fontSize: 40 }}
+                        className="text-success"
+                      />
+                    </Tooltip>{" "}
+                    {tempData.solved}
+                  </span>
+                </div>
+                <div className=" col-xl-2 col-lg-2 col-md-3 text-warning">
+                  <span title="Total Non Viewd Questions">
+                    <Tooltip title="Question Is Not Viewd">
+                      <EyeInvisibleFilled
+                        style={{ fontSize: 40 }}
+                        className="text-warning"
+                      />
+                    </Tooltip>{" "}
+                    {tempData.nonViewed}
+                  </span>
+                </div>
               </div>
             </div>
           </>
