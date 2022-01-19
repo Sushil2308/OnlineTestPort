@@ -27,9 +27,9 @@ class RightSection extends Component{
         <div className="jumbotrons m-1">
         {!loading ? (
          <div className="scrollbar scrollbar-primary w-100">
-         <div class="force-overflow">
-         <div class="bg-shadow">
-           <div className="row row-cols-2 m-auto row justify-content-center align-items-center">
+         <div className="force-overflow">
+         
+           <div className="row row-cols-2 m-auto row justify-content-center align-items-center bg-shadow">
             {data.map((temp, index) => (
               <div key={""+temp+index+1} onClick={()=>this.props.handleNext(temp.id)} className={temp.status===0?"bg-shadow col-2 rounded-circle bg-warning py-2 quesBack m-3 row justify-content-center align-items-center text-white fontSize":temp.status===1?"bg-shadow col-2 bg-primary py-2 rounded-circle quesBack m-3 row justify-content-center align-items-center text-white fontSize":"bg-shadow col-2 bg-success rounded-circle py-2 quesBack m-3 row justify-content-center align-items-center text-white fontSize"}>
                   <Tooltip title={temp.status===0?"Question Is Not Viewd":temp.status===1?"Question Is Already Viewd But Not Solved":"Question Is Solved"}><h5 className="row  justify-content-center align-items-center">{`Q.${index+1}`}</h5></Tooltip>
@@ -37,7 +37,7 @@ class RightSection extends Component{
             ))}
             </div>
             </div>
-            </div>
+           
            </div>
         ) : (
           <Spin indicator={antIcon} />

@@ -1,14 +1,10 @@
 import React, { Component } from "react";
-import { LoadingOutlined } from "@ant-design/icons";
-import {Link} from 'react-router-dom'
-import { Spin, Tooltip } from "antd";
-const antIcon = (
-  <LoadingOutlined type="loading" style={{ fontSize: 24 }} spin />
-);
+import { CloseOutlined, CheckOutlined } from "@ant-design/icons";
+import { Link } from "react-router-dom";
+
 class ShowQuesWithAns extends Component {
-  
   render() {
-    const data  = this.props.data;
+    const data = this.props.data;
     return (
       <div className="junbotrons mt-2 mb-3">
         {data.map((questData, index) => (
@@ -31,54 +27,67 @@ class ShowQuesWithAns extends Component {
               >
                 <div className="form-check">
                   <label className="form-check-label fontSize">
-                    {data.answerd === index ? (
-                      <input
-                        type="radio"
-                        className="form-check-input pointer"
-                        value={option}
-                        name="option"
-                        checked
-                        readOnly
-                      />
-                    ) : (
-                      <input
-                        type="radio"
-                        className="form-check-input pointer"
-                        value={option}
-                        name="option"
-                        readOnly
-                      />
-                    )}
+                    <input
+                      type="radio"
+                      className="form-check-input pointer"
+                      value={option}
+                      name="option"
+                      checked={questData.answerd === index ? true : false}
+                      readOnly
+                    />
 
                     {`${String.fromCharCode(index + 65)}. ${option}`}
+                    {questData.answerd === index ? (
+                      questData.options[questData.answerd] ===
+                      questData.correctAnswere[0] ? (
+                        <CheckOutlined
+                          className="text-success"
+                          style={{ fontSize: 24, marginLeft: 10 }}
+                        />
+                      ) : (
+                        <CloseOutlined
+                          className="text-danger"
+                          style={{ fontSize: 24, marginLeft: 10 }}
+                        />
+                      )
+                    ) : (
+                      ""
+                    )}
                   </label>
                 </div>
               </div>
             ))}
-            {this.props.ShowMyResultSection ? (
-              <div
-                className={
-                    questData.answerd >= 0
-                    ? questData.options[questData.answerd] === questData.correctAnswere[0]
-                      ? "text-primary mt-2 p-3 bg-shadow"
-                      : "text-warning mt-2 p-3 bg-shadow"
-                    : "text-danger mt-2 p-3 bg-shadow"
-                }
-              >
-                {questData.answerd >= 0
-                  ? `Your Answer Was: ${
-                    questData.options[questData.answerd]
-                    }.The Correct Is :${questData.correctAnswere}`
-                  : "First Choose Your Expected Option"}
-              </div>
-            ) : (
-              ""
-            )}
+
+            <div
+              className={
+                questData.answerd >= 0
+                  ? "text-primary mt-2 p-3 bg-shadow"
+                  : "text-danger mt-2 p-3 bg-shadow"
+              }
+            >
+              {questData.answerd >= 0
+                ? `Correct answer Is: ${questData.correctAnswere[0]}`
+                : "First Choose Your Expected Option"}
+            </div>
           </div>
         ))}
-        <div className="row col-12 d-flex justify-content-center align-items-center mt-2 mb-3">
-            <Link to="/quizlist"><button className="btn btn-primary col-xl-3 col-lg-3 col-md-12">Go Home Quiz Page</button></Link>
+        <div className="row d-flex justify-content-center align-items-center mt-2 mb-3">
+         
+            <button className="btn btn-success col-xl-3 col-lg-3 col-md-12"
+            onClick={()=>this.props.ShowMyResults(false)}
+            >
+              Back To Test
+            </button>
+    
         </div>
+        <div className="row d-flex justify-content-center align-items-center mt-2 mb-3">
+          <Link to="/quizlist" className=" col-xl-3 col-lg-3 col-md-12">
+            <button className="btn btn-primary col-12">
+              Go Home Quiz Page
+            </button>
+          </Link>
+        </div>
+
       </div>
     );
   }

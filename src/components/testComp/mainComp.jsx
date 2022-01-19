@@ -106,6 +106,7 @@ class TestPortal extends Component {
       ShowMyResultSection = false,
       data = [],
     } = this.state;
+    let TotalClicks=this.SumOfClicks()
     // console.log(this.state);
     return (
       <div className="container-fluid testBack fix-height ">
@@ -144,23 +145,22 @@ class TestPortal extends Component {
                     />
                   </div>
                 </div>
-                <div className="row col-12 d-flex justify-content-center align-items-center text-danger mt-2 bt-3">
-                  {this.SumOfClicks() === data.length ? (
+                <div className="row d-flex justify-content-center align-items-center text-danger mt-2 bt-3">
+                  
                     <button
                       className="btn btn-warning col-xl-3 col-lg-3 col-md-12"
                       onClick={() => this.ShowMyResults(true)}
+                      disabled={TotalClicks === data.length?false:true}
                     >
                       <Tooltip title="Sure!! You want to submit to test!">
-                        Check Answers!!{" "}
+                      {TotalClicks === data.length?"Check Answers!!":"First attempt All!!"}
                       </Tooltip>
                     </button>
-                  ) : (
-                    ""
-                  )}
+                 
                 </div>
               </>
             ) : (
-              <ShowQuesWithAns data={data} />
+              <ShowQuesWithAns data={data} ShowMyResults={this.ShowMyResults}/>
             )}
           </>
         ) : (

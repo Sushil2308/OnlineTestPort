@@ -41,7 +41,7 @@ class QuizList extends Component {
               <h5 className="text-center">{temp.exam_name}</h5>
                 <div className="card-header mt-2">{temp.subject}</div>
                 <div className="card-body">
-                  <h5 className="card-title">Top Mcq On {temp.subject}</h5>
+                  <h6 className="card-title">{temp.subject}</h6>
                   <p className="card-text">
                     In this Quiz You Got Latest Question
                     for {temp.exam_name} and These Questions are 
