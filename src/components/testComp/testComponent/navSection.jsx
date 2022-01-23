@@ -32,7 +32,7 @@ class NavSection extends Component {
         {!loading ? (
           <>
             <div className="row fontSizeBold">
-              <div className="text-center text-dark">Exam Name</div>
+            
 
               <div className="row row-cols-3 d-flex col-xl-6 col-lg-6 col-md-12 justify-content-between align-items-center mt-2">
                 <div className=" col-xl-2 col-lg-2 col-md-2 text-primary">

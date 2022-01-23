@@ -33,12 +33,12 @@ class QuizList extends Component {
   render() {
     const{data=[],loading=true}=this.state
     return (
-      <div className="jumbotrons">
+      <div className="jumbotrons mt-3">
         {!loading?
-         <div className="row d-flex justify-content-center align-items-center">
+         <div className="row d-flex justify-content-center align-items-center m-1">
         {data.map((temp) => (
               <div className="card col-xl-3 col-lg-3 col-md-12 m-1 bg-shadow" key={temp}>
-              <h5 className="text-center">{temp.exam_name}</h5>
+              <h5 className="text-center mt-2">{temp.exam_name}</h5>
                 <div className="card-header mt-2">{temp.subject}</div>
                 <div className="card-body">
                   <h6 className="card-title">{temp.subject}</h6>
