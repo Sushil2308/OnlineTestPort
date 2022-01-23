@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { LoadingOutlined, EyeFilled ,EyeInvisibleFilled,LikeFilled  } from "@ant-design/icons";
+import { LoadingOutlined, EyeFilled ,EyeInvisibleFilled,LikeFilled,DoubleLeftOutlined,DoubleRightOutlined  } from "@ant-design/icons";
 import { Spin, Tooltip } from "antd";
 const antIcon = (
   <LoadingOutlined type="loading" style={{ fontSize: 24 }} spin />
@@ -106,13 +106,13 @@ class MiddleSection extends Component {
              {this.props.ShowMyResultSection?<div className={data.answerd>=0?data.options[data.answerd]===data.correctAnswere[0]?"text-primary mt-2 p-3 bg-shadow":"text-warning mt-2 p-3 bg-shadow":"text-danger mt-2 p-3 bg-shadow"}>{data.answerd>=0?`Your Answer Was: ${data.options[data.answerd]}.The Correct Is :${data.correctAnswere}`:"First Choose Your Expected Option"}</div>:""}
             </div>
             <div className="row d-flex justify-content-between align-items-center mt-1 mb-2">
-              <button disabled={index>0?false:true} className="btn col-xl-2 col-lg-2 col-md-4 btn-outline-primary"
+              <button disabled={index>0?false:true} className="btn col-2 btn-outline-primary p-2"
                onClick={()=>this.props.handleNext(data.id-1)}
-              >Prev</button>
+              ><DoubleLeftOutlined /></button>
               
-              <button disabled={index<lastIndex-1?false:true} className="btn col-xl-2 col-lg-2 col-md-4 btn-outline-success"
+              <button disabled={index<lastIndex-1?false:true} className="btn col-2 btn-outline-success p-2"
                onClick={()=>this.props.handleNext(data.id+1)}
-              >Next</button>
+              ><DoubleRightOutlined /></button>
           </div>
           </>
         ) : (
