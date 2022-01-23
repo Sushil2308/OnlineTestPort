@@ -120,13 +120,13 @@ class TestPortal extends Component {
           <>
             {!ShowMyResultSection ? (
               <>
-                <div className=" col-xl-12 col-lg-12 col-md-12  testBack nav-height">
+                {/* <div className=" col-xl-12 col-lg-12 col-md-12  testBack nav-height">
                   <NavSection
                     fetchViewdNonViewd={this.fetchViewdNonViewd()}
 
                   />
-                </div>
-                <div className="row mt-4">
+                </div> */}
+                <div className="row mt-2">
                   {/* <div className="col-xl-3 col-lg-3 col-md-12 testBack">
             <LeftSection
               handleNext={this.handleNext}
