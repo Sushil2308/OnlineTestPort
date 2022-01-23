@@ -13,7 +13,7 @@ import Progress from "./progress";
 class Display extends Component {
   render() {
     return (
-      <div className="container-fluid">
+      <div className="jumbotrons">
          
         <Nav />
         <Switch>

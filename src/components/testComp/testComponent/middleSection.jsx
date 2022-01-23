@@ -39,9 +39,9 @@ class MiddleSection extends Component {
           <>
             <div className="row flex-column mb-2 justify-content-center align-items-center">
               <div className="row col-12 py-2 mt-2 testBack bg-shadow">
-                <h5 className="row col-12 d-flex justify-content-start align-items-center fontQuesSize mt-1">{`Q.${
+                <div className="row col-12 d-flex justify-content-start align-items-center fontQuesSize mt-1">{`Q.${
                   index + 1
-                }) ${data.question}`}</h5>
+                }) ${data.question}`}</div>
               </div>
               <div className="mSpace"></div>
               <div className="row col-12 d-flex justify-content-start align-items-center">
@@ -106,11 +106,11 @@ class MiddleSection extends Component {
              {this.props.ShowMyResultSection?<div className={data.answerd>=0?data.options[data.answerd]===data.correctAnswere[0]?"text-primary mt-2 p-3 bg-shadow":"text-warning mt-2 p-3 bg-shadow":"text-danger mt-2 p-3 bg-shadow"}>{data.answerd>=0?`Your Answer Was: ${data.options[data.answerd]}.The Correct Is :${data.correctAnswere}`:"First Choose Your Expected Option"}</div>:""}
             </div>
             <div className="row d-flex justify-content-between align-items-center mt-1 mb-2">
-              <button disabled={index>0?false:true} className="btn col-2 btn-outline-primary"
+              <button disabled={index>0?false:true} className="btn col-xl-2 col-lg-2 col-md-4 btn-outline-primary"
                onClick={()=>this.props.handleNext(data.id-1)}
               >Prev</button>
               
-              <button disabled={index<lastIndex-1?false:true} className="btn col-2 btn-outline-success"
+              <button disabled={index<lastIndex-1?false:true} className="btn col-xl-2 col-lg-2 col-md-4 btn-outline-success"
                onClick={()=>this.props.handleNext(data.id+1)}
               >Next</button>
           </div>

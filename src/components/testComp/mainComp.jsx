@@ -12,6 +12,7 @@ import url from "../Token/urls";
 import { message } from "antd";
 import ShowQuesWithAns from "./testComponent/showQuesAns";
 import { Spin, Tooltip } from "antd";
+import ShowReportCard from "./testComponent/showReportCard";
 const antIcon = (
   <LoadingOutlined type="loading" style={{ fontSize: 24 }} spin />
 );
@@ -21,6 +22,8 @@ class TestPortal extends Component {
     data: [],
     loading: true,
     ShowMyResultSection: false,
+    ShowFinalResults:0,
+    correct:0
   };
   componentDidMount() {
     this.getData();
@@ -82,7 +85,7 @@ class TestPortal extends Component {
   SumOfClicks=()=>this.state.data.reduce((sum,temp)=>sum+temp.Clicked,0)
   
   fetchViewdNonViewd = () => {
-    const tempData = { viewed: 0, nonViewed: 0, solved: 0 };
+    const tempData = { viewed: 0, nonViewed: 0, solved: 0,total:this.state.data.length};
     this.state.data.map((temp) => {
       if (temp.status === 0) {
         tempData.nonViewed++;
@@ -95,19 +98,22 @@ class TestPortal extends Component {
     // console.log(tempData)
     return tempData;
   };
+  getTotalCorrect=()=>this.state.data.reduce((sum,temp,index)=>temp.options[temp.answerd] === eval(temp.correctAnswere)[0]?sum+1:sum+0,0)
   ShowMyResults = (value) => {
     // console.log("Wait")
     this.setState({ ShowMyResultSection: value });
   };
+  ShowFinalResults=(value,correct)=>{
+    this.setState({ ShowMyResultSection: value,correct:correct });
+  }
   render() {
     const {
       currentIndex = 1,
       loading = true,
-      ShowMyResultSection = false,
+      ShowMyResultSection = 0,
       data = [],
     } = this.state;
     let TotalClicks=this.SumOfClicks()
-    // console.log(this.state);
     return (
       <div className="container-fluid testBack fix-height ">
         {!loading ? (
@@ -149,7 +155,7 @@ class TestPortal extends Component {
                   
                     <button
                       className="btn btn-warning col-xl-3 col-lg-3 col-md-12"
-                      onClick={() => this.ShowMyResults(true)}
+                      onClick={() => this.ShowMyResults(1)}
                       disabled={TotalClicks === data.length?false:true}
                     >
                       <Tooltip title="Sure!! You want to submit to test!">
@@ -160,8 +166,10 @@ class TestPortal extends Component {
                 </div>
               </>
             ) : (
-              <ShowQuesWithAns data={data} ShowMyResults={this.ShowMyResults}/>
-            )}
+              ShowMyResultSection===1?
+              <ShowQuesWithAns data={data} ShowMyResults={this.ShowMyResults} ShowFinalResults={this.ShowFinalResults}/>
+              :<ShowReportCard data={this.fetchViewdNonViewd()} correct={this.getTotalCorrect()} />
+              )}
           </>
         ) : (
           <Spin anticon={antIcon} />

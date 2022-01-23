@@ -41,6 +41,7 @@ class ShowQuesWithAns extends Component {
                       questData.options[questData.answerd] ===
                       questData.correctAnswere[0] ? (
                         <CheckOutlined
+                        
                           className="text-success"
                           style={{ fontSize: 24, marginLeft: 10 }}
                         />
@@ -74,12 +75,21 @@ class ShowQuesWithAns extends Component {
         <div className="row d-flex justify-content-center align-items-center mt-2 mb-3">
          
             <button className="btn btn-success col-xl-3 col-lg-3 col-md-12"
-            onClick={()=>this.props.ShowMyResults(false)}
+            onClick={()=>this.props.ShowMyResults(0)}
             >
               Back To Test
             </button>
     
         </div>
+        <div className="row d-flex justify-content-center align-items-center mt-2 mb-3">
+         
+         <button className="btn btn-success col-xl-3 col-lg-3 col-md-12"
+         onClick={()=>this.props.ShowFinalResults(2)}
+         >
+           Submit Your Test
+         </button>
+ 
+     </div>
         <div className="row d-flex justify-content-center align-items-center mt-2 mb-3">
           <Link to="/quizlist" className=" col-xl-3 col-lg-3 col-md-12">
             <button className="btn btn-primary col-12">

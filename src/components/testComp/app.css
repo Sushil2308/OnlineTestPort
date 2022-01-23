@@ -23,6 +23,8 @@
   font-size: 18px;
   font-family: "Times New Roman", Times, serif;
   font-weight: 400;
+  text-align: justify;
+  text-justify: inter-word;
 }
 .fontSizeBold{
   font-size: 18px;
@@ -30,9 +32,12 @@
   font-weight: bolder;
 }
 .fontQuesSize {
-  font-size: 24px;
+  font-size: 18px;
   font-family: "Times New Roman", Times, serif;
   font-weight: bolder;
+  text-align: justify;
+  text-justify: inter-word;
+
 }
 .fontSizeLeft {
   font-size: 18px;
