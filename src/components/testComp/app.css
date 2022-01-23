@@ -102,3 +102,6 @@ body {
 .navBg{
   background-color: #000;
 }
+.pointer{
+  cursor: pointer;
+}
