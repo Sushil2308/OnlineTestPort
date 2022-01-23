@@ -92,12 +92,12 @@ class ShowQuesWithAns extends Component {
      </div>
         <div className="row d-flex justify-content-center align-items-center mt-2 mb-3">
           <Link to="/quizlist" className=" col-xl-3 col-lg-3 col-md-12">
-            <button className="btn btn-primary col-12">
+            <button className="btn btn-primary col-12 mb-2">
               Go Home Quiz Page
             </button>
           </Link>
         </div>
-
+                <div className="mt-2"></div>
       </div>
     );
   }

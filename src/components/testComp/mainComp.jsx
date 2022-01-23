@@ -151,10 +151,10 @@ class TestPortal extends Component {
                     />
                   </div>
                 </div>
-                <div className="row d-flex justify-content-center align-items-center text-danger mt-2 bt-3">
+                <div className="row d-flex justify-content-center align-items-center text-danger mt-2 mb-3">
                   
                     <button
-                      className="btn btn-warning col-xl-3 col-lg-3 col-md-12"
+                      className="btn btn-warning col-xl-3 col-lg-3 col-md-12 mb-3"
                       onClick={() => this.ShowMyResults(1)}
                       disabled={TotalClicks === data.length?false:true}
                     >
