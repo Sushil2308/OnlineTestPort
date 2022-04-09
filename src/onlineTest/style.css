@@ -1,0 +1,136 @@
+.logoImg {
+  width: 75px;
+  height: auto;
+}
+.loginButton {
+  font-size: 13px;
+  min-height: 20px;
+}
+.minilogo {
+  width: 20px;
+  height: auto;
+  margin-left: 2px;
+}
+.logoFont {
+  font-size: 11px;
+}
+.navHeight {
+  height: 70px;
+}
+.loginButMt {
+  margin-top: 10px;
+}
+.fontSizeM {
+  font-size: 18px;
+  margin-top: 5px;
+}
+.fontSizeLi {
+  font-size: 14px;
+}
+.fontSizeLi:hover {
+  background-color: rgb(202, 202, 202);
+}
+.sortSizeFont {
+  font-size: 16px;
+}
+.backgrounChange {
+  background-color: lightgray;
+}
+.hearderStyle {
+  font-size: 22px;
+  margin-left: -5px;
+}
+.col11 {
+  width: 99%;
+}
+.col12 {
+  width: 100%;
+}
+.pnHeight {
+  width: 5px;
+  height: 200px;
+
+  margin: 3px;
+}
+.newhieghWidthImg {
+  width: 80px;
+  height: 160px;
+  margin: auto;
+}
+.arrowFont {
+  font-size: 28px;
+  font-weight: bolder;
+  cursor: pointer;
+}
+.fontSizeName {
+  font-size: 11px;
+}
+.sideImg {
+  height: 200px;
+}
+.bottomImg {
+  width: auto;
+  height: auto;
+}
+.desProperty {
+  background-color: rgb(255, 255, 255);
+  color: rgb(132, 132, 132);
+}
+.des {
+  font-size: 10px;
+}
+.lead {
+  font-size: 16px;
+}
+.fontSize2 {
+  font-size: 16px;
+}
+.fontSize1 {
+  font-size: 10px;
+  color: rgb(196, 180, 180);
+}
+.width1 {
+  width: 1px;
+  height: auto;
+}
+.bgdark {
+  background-color: rgb(16, 19, 49);
+}
+.hDTmm5 {
+  color: #fff;
+  margin-left: 8px;
+}
+.leftsmallcard {
+  width: 40px;
+  height: 80px;
+}
+.pointer {
+  cursor: pointer;
+}
+.font-bold {
+  font-weight: bolder;
+}
+.width-height {
+  margin: auto;
+  width: 400px;
+  height: 400px;
+}
+.container-height {
+  height: 780px;
+}
+.width-height2 {
+  margin: auto;
+  width: 600px;
+  height: 600px;
+}
+
+.height {
+  height: 800px;
+}
+.col12 {
+  width: 98%;
+  margin: auto;
+}
+.fontSize {
+  font-size: 20px;
+}
